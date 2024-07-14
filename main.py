@@ -232,6 +232,14 @@ async def crawl_urls(crawl_request: CrawlRequest, request: Request):
         if not crawl_request.include_raw_html:
             for result in results:
                 result.html = None
+                result.cleaned_html = None
+                result.media = None
+                result.links = None
+                result.screenshot = None
+                result.extracted_content = None
+                result.metadata = None
+                
+                
 
         return {"results": [result.model_dump() for result in results]}
     finally:
